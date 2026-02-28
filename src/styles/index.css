@@ -1,0 +1,131 @@
+:root {
+  /* Funky Color Palette */
+  --color-magenta: #FF006E;
+  --color-yellow: #FFBE0B;
+  --color-purple: #8338EC;
+  --color-blue: #3A86FF;
+  --color-green: #06D6A0;
+
+  --color-dark: #111111;
+  --color-light: #FBFAED;
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+
+  /* Layout & Spacing */
+  --nav-height: 80px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Base Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* GSAP Scroll/Pin Utilities */
+.scroller-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pin-spacer {
+  /* GSAP will automatically use this, so we ensure no margin collapse */
+  display: block;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--color-magenta);
+  color: var(--color-light);
+}
+
+/* Lenis Recommended Root Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Decorative Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+@keyframes floatReverse {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(20px) rotate(-10deg);
+  }
+}
+
+/* Responsive Utilities */
+.hide-on-mobile {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .hide-on-mobile {
+    display: block !important;
+  }
+
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
